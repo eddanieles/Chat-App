@@ -24,6 +24,11 @@
   background-color: #E0E0E1;
   li {
     margin: 10px 10px;
+    &:hover {
+      .remove {
+        display: inline-block;
+      }
+    }
     .usernames {
       font-weight: bolder;
       color: blue;
@@ -35,7 +40,7 @@
       margin: 10px 10px;
     }
     .remove {
-
+      display: none;
     }
     .remove:hover{
       background-color: red;

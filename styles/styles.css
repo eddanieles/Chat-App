@@ -19,6 +19,8 @@
   background-color: #E0E0E1; }
   #messages_list li {
     margin: 10px 10px; }
+    #messages_list li:hover .remove {
+      display: inline-block; }
     #messages_list li .usernames {
       font-weight: bolder;
       color: blue; }
@@ -26,6 +28,8 @@
       font-size: 50%; }
     #messages_list li .text {
       margin: 10px 10px; }
+    #messages_list li .remove {
+      display: none; }
     #messages_list li .remove:hover {
       background-color: red;
       color: white; }

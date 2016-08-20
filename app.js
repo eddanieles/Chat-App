@@ -23,8 +23,7 @@ $(function (){
   var messageTemplate = "<li data-id='{{id}}'>" +
   "<span class='usernames'>{{attributes.username}}</span> " +
   "<span class='dates'>{{attributes.created-at}}:</span> " +
-  "<span class='text'>{{attributes.text}}</span> " +
-  "<button class='remove'>Delete</button>"
+  "<p class='text'>{{attributes.text}} <button class='remove'>Remove Post</button> </p> " +
   "</li>";
 
 
@@ -82,29 +81,17 @@ $(function (){
     console.log(username_text);
     var self = $(this);
     console.log(self.closest("li").children("span.usernames"));
-    // $.ajax({
-    //   url: `https://fathomless-woodland-51903.herokuapp.com/messages/${self.closest("li").data("id")}`,
-    //   type: "DELETE",
-    //   headers: {
-    //     "Authorization": "Token token=supadupasecret"
-    //   },
-    //   success: function(data){
-    //     self.closest("li").remove()
-    //   }
-    // })
+    $.ajax({
+      url: `https://fathomless-woodland-51903.herokuapp.com/messages/${self.closest("li").data("id")}`,
+      type: "DELETE",
+      headers: {
+        "Authorization": "Token token=supadupasecret"
+      },
+      success: function(data){
+        self.closest("li").remove()
+      }
+    })
   })
-  // $messages_list.delegate(".remove", "click", function(){
-  //   var $li = $(this).closest("li");
-  //   $.ajax({
-  //   type: 'DELETE',
-  //   url: 'https://fathomless-woodland-51903.herokuapp.com/messages' + $(this).attr('data-id'),
-  //   headers: {
-  //     "Authorization": "Token token=supadupasecret"
-  //   },
-  //   success: function() {
-  //     $li.remove();
-  //     }
-  //   });
-  // })
+
 
 });

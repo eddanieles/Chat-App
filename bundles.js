@@ -29,8 +29,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   var $username = (0, _jquery2.default)("#username");
   var $input_message = (0, _jquery2.default)("#input_message");
 
-  var messageTemplate = "<li data-id='{{id}}'>" + "<span class='usernames'>{{attributes.username}}</span> " + "<span class='dates'>{{attributes.created-at}}:</span> " + "<span class='text'>{{attributes.text}}</span> " + "<button class='remove'>Delete</button>";
-  "</li>";
+  var messageTemplate = "<li data-id='{{id}}'>" + "<span class='usernames'>{{attributes.username}}</span> " + "<span class='dates'>{{attributes.created-at}}:</span> " + "<p class='text'>{{attributes.text}} <button class='remove'>Remove Post</button> </p> " + "</li>";
 
   function addMessage(message) {
     $messages_list.append(_mustache2.default.render(messageTemplate, message));
@@ -85,30 +84,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log(username_text);
     var self = (0, _jquery2.default)(this);
     console.log(self.closest("li").children("span.usernames"));
-    // $.ajax({
-    //   url: `https://fathomless-woodland-51903.herokuapp.com/messages/${self.closest("li").data("id")}`,
-    //   type: "DELETE",
-    //   headers: {
-    //     "Authorization": "Token token=supadupasecret"
-    //   },
-    //   success: function(data){
-    //     self.closest("li").remove()
-    //   }
-    // })
+    _jquery2.default.ajax({
+      url: "https://fathomless-woodland-51903.herokuapp.com/messages/" + self.closest("li").data("id"),
+      type: "DELETE",
+      headers: {
+        "Authorization": "Token token=supadupasecret"
+      },
+      success: function success(data) {
+        self.closest("li").remove();
+      }
+    });
   });
-  // $messages_list.delegate(".remove", "click", function(){
-  //   var $li = $(this).closest("li");
-  //   $.ajax({
-  //   type: 'DELETE',
-  //   url: 'https://fathomless-woodland-51903.herokuapp.com/messages' + $(this).attr('data-id'),
-  //   headers: {
-  //     "Authorization": "Token token=supadupasecret"
-  //   },
-  //   success: function() {
-  //     $li.remove();
-  //     }
-  //   });
-  // })
 });
 
 },{"jquery":2,"mustache":3}],2:[function(require,module,exports){
