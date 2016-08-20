@@ -1,0 +1,34 @@
+.messages {
+  width: 70%;
+  margin: auto; }
+  .messages h1 {
+    text-align: center; }
+  .messages div {
+    position: relative; }
+    .messages div .message_form {
+      position: absolute;
+      right: 0; }
+      .messages div .message_form #post_button:hover {
+        font-size: 150%;
+        background-color: blue;
+        color: white; }
+
+#messages_list {
+  border: 1px solid lightgray;
+  padding: 30px 30px;
+  background-color: #E0E0E1; }
+  #messages_list li {
+    margin: 10px 10px; }
+    #messages_list li .usernames {
+      font-weight: bolder;
+      color: blue; }
+    #messages_list li .dates {
+      font-size: 50%; }
+    #messages_list li .text {
+      margin: 10px 10px; }
+    #messages_list li .remove:hover {
+      background-color: red;
+      color: white; }
+
+.message_form {
+  text-align: center; }
