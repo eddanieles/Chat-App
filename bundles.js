@@ -55,9 +55,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     var $date = new Date();
 
     var message_line = {
-      username: $username.val(),
-      text: $input_message.val(),
-      'created-at': $date
+      "type": "messages",
+      "attributes": {
+        "username": $username.val(),
+        "text": $input_message.val()
+      }
     };
 
     console.log(message_line);
