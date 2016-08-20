@@ -60,19 +60,19 @@ $(function (){
     console.log(message_line);
 
     $.ajax({
-    type: 'POST',
-    url: 'https://fathomless-woodland-51903.herokuapp.com/messages',
-    headers: {
-      "Authorization": "Token token=supadupasecret"
-    },
-    data: message_line,
-    success: function(message) {
-      addMessage(message);
-    },
-    error: function(){
-      alert("error posting message");
-    }
-  });
+      type: 'POST',
+      url: 'https://fathomless-woodland-51903.herokuapp.com/messages',
+      headers: {
+        "Authorization": "Token token=supadupasecret"
+      },
+      data: message_line,
+      success: function(message) {
+        addMessage(message);
+      },
+      error: function(){
+        alert("error posting message");
+      }
+    });
 
     $input_message.val("");
   })
@@ -89,8 +89,11 @@ $(function (){
       },
       success: function(data){
         self.closest("li").remove()
+      },
+      error: function(){
+        alert("error deleting message");
       }
-    })
+    });
   })
 
 
