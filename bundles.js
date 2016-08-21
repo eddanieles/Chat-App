@@ -54,9 +54,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   (0, _jquery2.default)("#post_button").on("click", function () {
     var $date = new Date();
 
-    var message_line = {
-      "type": "messages",
-      "attributes": {
+    var message_line = { "message": {
         "username": $username.val(),
         "text": $input_message.val()
       }
@@ -71,8 +69,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         "Authorization": "Token token=supadupasecret"
       },
       data: message_line,
-      success: function success(message) {
-        addMessage(message);
+      success: function success(newMessage) {
+        addMessage(newMessage);
       },
       error: function error() {
         alert("error posting message");

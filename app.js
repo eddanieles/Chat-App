@@ -51,9 +51,7 @@ $(function (){
   $("#post_button").on("click",function(){
     var $date = new Date();
 
-    var message_line = {
-      "type": "messages",
-      "attributes": {
+    var message_line = {"message": {
         "username": $username.val(),
         "text": $input_message.val(),
       }
@@ -68,8 +66,8 @@ $(function (){
         "Authorization": "Token token=supadupasecret"
       },
       data: message_line,
-      success: function(message) {
-        addMessage(message);
+      success: function(newMessage) {
+        addMessage(newMessage);
       },
       error: function(){
         alert("error posting message");

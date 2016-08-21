@@ -16,7 +16,10 @@
 #messages_list {
   border: 1px solid lightgray;
   padding: 30px 30px;
-  background-color: #E0E0E1; }
+  background-color: #E0E0E1;
+  max-height: 250px;
+  overflow: hidden;
+  overflow-y: scroll; }
   #messages_list li {
     margin: 10px 10px; }
     #messages_list li:hover .remove {
