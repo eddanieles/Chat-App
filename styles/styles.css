@@ -22,8 +22,10 @@
   overflow-y: scroll; }
   #messages_list li {
     margin: 10px 10px; }
-    #messages_list li:hover .remove {
-      display: inline-block; }
+    #messages_list li:hover {
+      background-color: #797FAC; }
+      #messages_list li:hover .remove {
+        display: inline-block; }
     #messages_list li .usernames {
       font-weight: bolder;
       color: blue; }
